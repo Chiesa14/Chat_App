@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "682509338400",
+    "project_id": "chatoo-49159",
+    "storage_bucket": "chatoo-49159.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:682509338400:android:09465f32fada03f8e7f945",
+        "android_client_info": {
+          "package_name": "com.example.chat_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBpf74rdyPJ9lB9JVlv32nL1JVZVCyWvUM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
