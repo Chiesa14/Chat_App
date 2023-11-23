@@ -4,8 +4,9 @@ import 'package:flutter/material.dart';
 class AuthService extends ChangeNotifier {
   final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
 
+//log in
   Future<UserCredential> singInWithEmailAndPassword(
-      String email, String password) async {
+      String email, password) async {
     try {
       UserCredential userCredential = await _firebaseAuth
           .signInWithEmailAndPassword(email: email, password: password);
@@ -15,6 +16,19 @@ class AuthService extends ChangeNotifier {
     }
   }
 
+//create account
+  Future<UserCredential> singUpWithEmailAndPassword(
+      String email, password) async {
+    try {
+      UserCredential userCredential = await _firebaseAuth
+          .createUserWithEmailAndPassword(email: email, password: password);
+      return userCredential;
+    } on FirebaseAuthException catch (e) {
+      throw Exception(e.code);
+    }
+  }
+
+//sign out
   Future<void> signOut() async {
     return await FirebaseAuth.instance.signOut();
   }
