@@ -62,7 +62,7 @@ class _HomePageState extends State<HomePage> {
             context,
             MaterialPageRoute(
               builder: (context) => ChatPage(
-                recieverUserWEmail: data['email'],
+                recieverUserEmail: data['email'],
                 recieverUserUID: data['uid'],
               ),
             ),
