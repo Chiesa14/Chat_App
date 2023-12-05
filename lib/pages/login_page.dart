@@ -16,19 +16,19 @@ class _LoginPageState extends State<LoginPage> {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
 
-  void singIn() {
+  void singIn() async {
     final authService = Provider.of<AuthService>(context, listen: false);
     try {
-      authService.singInWithEmailAndPassword(
+      await authService.singInWithEmailAndPassword(
           emailController.text, passwordController.text);
     } catch (e) {
+      String errorMessage = e.toString().replaceAll('Exception:', '');
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text(
-            e.toString(),
-          ),
+          content: Text(errorMessage),
         ),
       );
+      print(e.toString());
     }
   }
 
@@ -44,7 +44,7 @@ class _LoginPageState extends State<LoginPage> {
             child: Center(
               child: Column(
                 children: [
-                  const SizedBox(height: 200),
+                  const SizedBox(height: 150),
                   const Icon(
                     Icons.message,
                     size: 120,
@@ -69,7 +69,7 @@ class _LoginPageState extends State<LoginPage> {
                       obsecureText: true),
                   const SizedBox(height: 50),
                   MyButton(onTap: singIn, text: "Sign In"),
-                  const SizedBox(height: 50),
+                  const SizedBox(height: 25),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [

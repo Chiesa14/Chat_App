@@ -17,7 +17,7 @@ class _RegisterPageState extends State<RegisterPage> {
   final passwordController = TextEditingController();
   final confirmPasswordController = TextEditingController();
 
-  void singUp() {
+  void singUp() async {
     if (passwordController.text != confirmPasswordController.text) {
       ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(content: Text("The Password do not match")));
@@ -25,14 +25,13 @@ class _RegisterPageState extends State<RegisterPage> {
     }
     final authService = Provider.of<AuthService>(context, listen: false);
     try {
-      authService.singUpWithEmailAndPassword(
+      await authService.singUpWithEmailAndPassword(
           emailController.text, passwordController.text);
     } catch (e) {
+      String errorMessage = e.toString().replaceAll('Exception:', '');
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text(
-            e.toString(),
-          ),
+          content: Text(errorMessage),
         ),
       );
     }
@@ -49,7 +48,7 @@ class _RegisterPageState extends State<RegisterPage> {
             padding: const EdgeInsets.symmetric(horizontal: 25.0),
             child: Column(
               children: [
-                const SizedBox(height: 150),
+                const SizedBox(height: 100),
                 const Icon(
                   Icons.message,
                   size: 120,
@@ -79,7 +78,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     obsecureText: true),
                 const SizedBox(height: 50),
                 MyButton(onTap: singUp, text: "Sign Up"),
-                const SizedBox(height: 50),
+                const SizedBox(height: 25),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [

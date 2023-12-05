@@ -21,7 +21,15 @@ class AuthService extends ChangeNotifier {
       }, SetOptions(merge: true));
       return userCredential;
     } on FirebaseAuthException catch (e) {
-      throw Exception(e.code);
+      String errorMessage = e.code;
+      switch (errorMessage) {
+        case 'channel-error':
+          errorMessage = 'Fill in all the  required information';
+          break;
+        default:
+          errorMessage = e.code;
+      }
+      throw Exception(errorMessage);
     }
   }
 
@@ -38,7 +46,15 @@ class AuthService extends ChangeNotifier {
       });
       return userCredential;
     } on FirebaseAuthException catch (e) {
-      throw Exception(e.code);
+      String errorMessage = e.code;
+      switch (errorMessage) {
+        case 'channel-error':
+          errorMessage = 'Fill in all the  required information';
+          break;
+        default:
+          errorMessage = e.code;
+      }
+      throw Exception(errorMessage);
     }
   }
 
