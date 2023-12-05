@@ -16,7 +16,7 @@ class _LoginPageState extends State<LoginPage> {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
 
-  void singIn() async {
+  void signIn() async {
     final authService = Provider.of<AuthService>(context, listen: false);
     try {
       await authService.singInWithEmailAndPassword(
@@ -28,8 +28,11 @@ class _LoginPageState extends State<LoginPage> {
           content: Text(errorMessage),
         ),
       );
-      print(e.toString());
     }
+  }
+
+  void _submitForm() {
+    signIn();
   }
 
   @override
@@ -68,7 +71,7 @@ class _LoginPageState extends State<LoginPage> {
                       hintText: 'Password',
                       obsecureText: true),
                   const SizedBox(height: 50),
-                  MyButton(onTap: singIn, text: "Sign In"),
+                  MyButton(onTap: signIn, text: "Sign In"),
                   const SizedBox(height: 25),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
