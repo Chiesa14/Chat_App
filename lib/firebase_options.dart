@@ -17,10 +17,7 @@ import 'package:flutter/foundation.dart'
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
-      throw UnsupportedError(
-        'DefaultFirebaseOptions have not been configured for web - '
-        'you can reconfigure this by running the FlutterFire CLI again.',
-      );
+      return web;
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
@@ -49,20 +46,30 @@ class DefaultFirebaseOptions {
     }
   }
 
+  static const FirebaseOptions web = FirebaseOptions(
+    apiKey: 'AIzaSyDF2OY3bdgszY3t6l-vDxPnQX5rnKDTGG4',
+    appId: '1:316719139611:web:004adfbdd1adf977bea1be',
+    messagingSenderId: '316719139611',
+    projectId: 'chatoo-f8ba5',
+    authDomain: 'chatoo-f8ba5.firebaseapp.com',
+    storageBucket: 'chatoo-f8ba5.appspot.com',
+    measurementId: 'G-NKB2JEW3DX',
+  );
+
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyBpf74rdyPJ9lB9JVlv32nL1JVZVCyWvUM',
-    appId: '1:682509338400:android:09465f32fada03f8e7f945',
-    messagingSenderId: '682509338400',
-    projectId: 'chatoo-49159',
-    storageBucket: 'chatoo-49159.appspot.com',
+    apiKey: 'AIzaSyC5VEdiQfzY4KAsJkdl9LQs4mZ4oZ2JH6I',
+    appId: '1:316719139611:android:4732c166d7a117e9bea1be',
+    messagingSenderId: '316719139611',
+    projectId: 'chatoo-f8ba5',
+    storageBucket: 'chatoo-f8ba5.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyBIIR9juAI-dLydATK-dc_OVJ7hd9MPqWY',
-    appId: '1:682509338400:ios:eca3e2a9e2f286c1e7f945',
-    messagingSenderId: '682509338400',
-    projectId: 'chatoo-49159',
-    storageBucket: 'chatoo-49159.appspot.com',
+    apiKey: 'AIzaSyDv4wp4x0NH4axo43aiDjE8Xc-5Fq6zYsM',
+    appId: '1:316719139611:ios:4eacc257cea77e10bea1be',
+    messagingSenderId: '316719139611',
+    projectId: 'chatoo-f8ba5',
+    storageBucket: 'chatoo-f8ba5.appspot.com',
     iosBundleId: 'com.example.chatApp',
   );
 }
