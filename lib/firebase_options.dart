@@ -21,9 +21,15 @@ class DefaultFirebaseOptions {
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
-        return android;
+        throw UnsupportedError(
+          'DefaultFirebaseOptions have not been configured for android - '
+          'you can reconfigure this by running the FlutterFire CLI again.',
+        );
       case TargetPlatform.iOS:
-        return ios;
+        throw UnsupportedError(
+          'DefaultFirebaseOptions have not been configured for ios - '
+          'you can reconfigure this by running the FlutterFire CLI again.',
+        );
       case TargetPlatform.macOS:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for macos - '
@@ -56,20 +62,12 @@ class DefaultFirebaseOptions {
     measurementId: 'G-NKB2JEW3DX',
   );
 
-  static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyC5VEdiQfzY4KAsJkdl9LQs4mZ4oZ2JH6I',
-    appId: '1:316719139611:android:4732c166d7a117e9bea1be',
-    messagingSenderId: '316719139611',
-    projectId: 'chatoo-f8ba5',
-    storageBucket: 'chatoo-f8ba5.appspot.com',
-  );
-
-  static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyDv4wp4x0NH4axo43aiDjE8Xc-5Fq6zYsM',
-    appId: '1:316719139611:ios:4eacc257cea77e10bea1be',
-    messagingSenderId: '316719139611',
-    projectId: 'chatoo-f8ba5',
-    storageBucket: 'chatoo-f8ba5.appspot.com',
-    iosBundleId: 'com.example.chatApp',
+  static const FirebaseOptions web = FirebaseOptions(
+    apiKey: 'AIzaSyCWWY8ClVf1Mr-mImjrMJlw2fSznjSmSqA',
+    appId: '1:682509338400:web:e24da048ca268645e7f945',
+    messagingSenderId: '682509338400',
+    projectId: 'chatoo-49159',
+    authDomain: 'chatoo-49159.firebaseapp.com',
+    storageBucket: 'chatoo-49159.appspot.com',
   );
 }
