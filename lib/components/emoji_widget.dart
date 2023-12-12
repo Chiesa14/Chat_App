@@ -14,7 +14,7 @@ class _EmojiWidgetState extends State<EmojiWidget> {
   Widget build(BuildContext context) {
     return Container(
       height: MediaQuery.of(context).size.height * 0.4,
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         color: Colors.white,
       ),
     );
