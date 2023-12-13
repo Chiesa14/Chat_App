@@ -23,6 +23,13 @@ class _MyEmojiFieldState extends State<MyEmojiField> {
         EmojiWidget(addEmojiToTextController: addEmojiToTextController),
       TextField(
         controller: widget.controller,
+        onTap: () {
+          setState(() {
+            emojiShown = false;
+          });
+        },
+        maxLines: null,
+        style: const TextStyle(fontSize: 18),
         obscureText: false,
         decoration: InputDecoration(
             enabledBorder: OutlineInputBorder(
@@ -42,7 +49,7 @@ class _MyEmojiFieldState extends State<MyEmojiField> {
                   await Future.delayed(const Duration(milliseconds: 0))
                       .then((value) async {
                     await SystemChannels.textInput
-                        .invokeMethod("TextInput.show");
+                        .invokeMethod("TextInput.hide");
                   });
                 } else {
                   await SystemChannels.textInput.invokeMethod("TextInput.hide");
@@ -60,5 +67,13 @@ class _MyEmojiFieldState extends State<MyEmojiField> {
     ]);
   }
 
-  addEmojiToTextController({required Emoji emoji}) {}
+  addEmojiToTextController({required Emoji emoji}) {
+    setState(() {
+      widget.controller.text = widget.controller.text + emoji.emoji;
+
+      widget.controller.selection = TextSelection.fromPosition(
+        TextPosition(offset: widget.controller.text.length),
+      );
+    });
+  }
 }
