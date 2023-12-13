@@ -17,19 +17,16 @@ import 'package:flutter/foundation.dart'
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
-      return web;
+      throw UnsupportedError(
+        'DefaultFirebaseOptions have not been configured for web - '
+        'you can reconfigure this by running the FlutterFire CLI again.',
+      );
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for android - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return android;
       case TargetPlatform.iOS:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for ios - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return ios;
       case TargetPlatform.macOS:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for macos - '
@@ -52,30 +49,20 @@ class DefaultFirebaseOptions {
     }
   }
 
-  static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyDF2OY3bdgszY3t6l-vDxPnQX5rnKDTGG4',
-    appId: '1:316719139611:web:004adfbdd1adf977bea1be',
-    messagingSenderId: '316719139611',
-    projectId: 'chatoo-f8ba5',
-    authDomain: 'chatoo-f8ba5.firebaseapp.com',
-    storageBucket: 'chatoo-f8ba5.appspot.com',
-    measurementId: 'G-NKB2JEW3DX',
-  );
-
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyBpf74rdyPJ9lB9JVlv32nL1JVZVCyWvUM',
-    appId: '1:682509338400:android:09465f32fada03f8e7f945',
-    messagingSenderId: '682509338400',
-    projectId: 'chatoo-49159',
-    storageBucket: 'chatoo-49159.appspot.com',
+    apiKey: 'AIzaSyBfqmnU-iOdrMs0iCfShMIkTdzzJAwYRVA',
+    appId: '1:276070901035:android:e62331cd70baf28dc0d16e',
+    messagingSenderId: '276070901035',
+    projectId: 'chatoo-b7ada',
+    storageBucket: 'chatoo-b7ada.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyBIIR9juAI-dLydATK-dc_OVJ7hd9MPqWY',
-    appId: '1:682509338400:ios:eca3e2a9e2f286c1e7f945',
-    messagingSenderId: '682509338400',
-    projectId: 'chatoo-49159',
-    storageBucket: 'chatoo-49159.appspot.com',
+    apiKey: 'AIzaSyAXg5S4X_LOmjVzxJ_P_IuZzCx-r8Ztf-Y',
+    appId: '1:276070901035:ios:0aec1d66041c09c0c0d16e',
+    messagingSenderId: '276070901035',
+    projectId: 'chatoo-b7ada',
+    storageBucket: 'chatoo-b7ada.appspot.com',
     iosBundleId: 'com.example.chatApp',
   );
 }

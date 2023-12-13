@@ -42,7 +42,7 @@ class _MyEmojiFieldState extends State<MyEmojiField> {
                   await Future.delayed(const Duration(milliseconds: 500))
                       .then((value) async {
                     await SystemChannels.textInput
-                        .invokeMethod("TextInput.hide");
+                        .invokeMethod("TextInput.show");
                   });
                 } else {
                   await SystemChannels.textInput.invokeMethod("TextInput.hide");
