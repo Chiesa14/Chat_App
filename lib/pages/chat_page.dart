@@ -115,13 +115,14 @@ class _ChatPageState extends State<ChatPage> {
             controller: _messageController,
             hintText: "Enter Message",
           )),
-          //send button
           IconButton(
               onPressed: sendMessage,
               icon: const Icon(
                 Icons.send,
                 size: 20,
-              ))
+              )),
+
+          //send button
         ],
       ),
     );
